@@ -33,5 +33,9 @@ sudo apt -y install certbot
 
 Depuis le site de Gandi, dans les paramètres utilisateur, partie "login and security options" :  
 
-![security]()  
-![generate_key]()
+![security](https://github.com/Simplon-AlainCaupin/brief5/blob/main/IMG/gandi_security.png?raw=true)  
+
+La clé est déjà générée mais il est possible d'en générer une nouvelle, sous couvert de supprimer la précédente :  
+
+![generate_key](https://github.com/Simplon-AlainCaupin/brief5/blob/main/IMG/add_new_key.png?raw=true)  
+
