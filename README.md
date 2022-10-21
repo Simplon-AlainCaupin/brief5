@@ -82,3 +82,24 @@ Depuis l'interface Azure, sur le service "Application Gateway" :
 Changer le port frontend vers le port 443 pour le https,  
 Créer un listener en https + ajout du fichier certificat récupéré depuis wsl :  
 
+![wsl_file](https://github.com/Simplon-AlainCaupin/brief5/blob/main/IMG/wsl_cert_file.png?raw=true)  
+
+## Chargement du certificat dans Azure KeyVault en utilisant Azure CLI
+
+Via Azure Cli : création du Vault et commandes d'import / d'affichage du certificat :  
+
+```
+az keyvault create --resource-group brief5lain --name vaultlain --location westus
+az keyvault certificate import --file //wsl$/Ubuntu/home/alain/gandi/certificat.pfx --name certifazure --vault-name vaultlain --password toto1234
+az keyvault key import -n privkey --pem-file //wsl$/Ubuntu/home/alain/gandi/privkey.pem --vault-name vaultlain
+az keyvault certificate show --vault-name vaultlain --name certifazure
+```  
+
+### Difficultés rencontrées :  
+
+Retard de 3 jours sur le brief, pas de domain name gandi pendant 2 semaines, j'ai acheté un nom de domaine OVH pour tester mais rien ne fonctionnait.  
+Le nom de domaine Gandi a été disponible après quelque temps et j'ai pu réaliser le brief dans son intégralité avec le soutien d'une collègue
+
+### Retour sur le brief :  
+
+J'ai pu apprendre comment générer un certificat, l'appliquer à un DNS et le formatter avec openssl, dans l'ensemble tout s'est finalement bien passé
